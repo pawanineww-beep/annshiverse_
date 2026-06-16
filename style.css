@@ -1327,3 +1327,61 @@ footer > p {
   .hero-divider::before,
   .hero-divider::after { width: 40px; }
 }
+
+.quiz-preview{
+    padding:100px 7%;
+    text-align:center;
+}
+
+.quiz-desc{
+    max-width:600px;
+    margin:20px auto 40px;
+    color:var(--ivory-muted);
+}
+
+.quiz-box{
+    max-width:800px;
+    margin:auto;
+    background:rgba(15,6,6,0.7);
+    border:1px solid var(--border);
+    padding:40px;
+    border-radius:16px;
+}
+
+.quiz-question{
+    font-size:1.4rem;
+    color:var(--ivory);
+    margin-bottom:25px;
+}
+
+.quiz-input{
+    width:100%;
+    padding:15px;
+    background:#111;
+    border:1px solid var(--crimson);
+    color:white;
+    border-radius:8px;
+    margin-bottom:20px;
+}
+
+.quiz-feedback{
+    margin-top:20px;
+    color:var(--gold);
+    font-size:1.1rem;
+}
+
+.progress{
+    margin-bottom:25px;
+    color:var(--gold);
+    font-weight:bold;
+}
+
+.result-card{
+    padding:40px;
+}
+
+.result-title{
+    font-size:2rem;
+    color:var(--gold);
+    margin-bottom:20px;
+}
