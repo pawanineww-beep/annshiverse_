@@ -1385,3 +1385,74 @@ footer > p {
     color:var(--gold);
     margin-bottom:20px;
 }
+
+.quiz-option{
+display:block;
+text-align:left;
+max-width:500px;
+margin:15px auto;
+padding:15px;
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.1);
+border-radius:10px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.quiz-option:hover{
+border-color:#c0392b;
+background:rgba(192,57,43,0.1);
+}
+
+.quiz-option input{
+margin-right:10px;
+}
+
+/* SONGS SECTION */
+
+.songs-section{
+    padding:100px 7%;
+    text-align:center;
+}
+
+.songs-desc{
+    max-width:650px;
+    margin:20px auto 50px;
+    color:var(--ivory-muted);
+    line-height:1.8;
+}
+
+.song-card{
+    max-width:900px;
+    margin:40px auto;
+    padding:35px;
+    background:rgba(15,6,6,0.75);
+    border:1px solid var(--border);
+    border-radius:18px;
+    transition:0.3s;
+}
+
+.song-card:hover{
+    transform:translateY(-4px);
+    border-color:var(--crimson);
+}
+
+.song-book{
+    color:var(--gold);
+    letter-spacing:2px;
+    text-transform:uppercase;
+    font-size:0.8rem;
+}
+
+.song-card h3{
+    color:var(--ivory);
+    font-size:2rem;
+    margin-top:10px;
+    margin-bottom:15px;
+    font-family:var(--ff-display);
+}
+
+.song-card p{
+    color:var(--ivory-muted);
+    margin-bottom:25px;
+}
