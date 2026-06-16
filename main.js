@@ -118,71 +118,63 @@ if (canvas) {
 }
 
 const questions = [
+
 {
-question:"Arjun's line complete the slap just made you my ______",
-answers:["wife"],
-message:"🔥 The slap changed everything."
+question: "Complete the line: 'That slap just made you my...'",
+options: ["Queen", "Obsession", "Wife", "Destiny"],
+correct: 2,
+message: "🔥 The line that changed everything."
 },
 
 {
-question:"Anaya's strongest quality ______",
-answers:["courage"],
-message:"🖤 Courage is what made her unforgettable."
+question: "What is Anaya's strongest quality?",
+options: ["Beauty", "Courage", "Wealth", "Intelligence"],
+correct: 1,
+message: "🖤 Courage is what made her unforgettable."
 },
 
 {
-question:"The person Arjun trusts the most ______",
-answers:["anaya","vikrant","anaya and vikrant"],
-message:"⚡ Trust is rare in Arjun's world."
+question: "Who does Arjun trust the most?",
+options: ["Vikrant", "Anaya", "Both Anaya and Vikrant", "Nobody"],
+correct: 2,
+message: "⚡ Trust is rare in Arjun's world."
 },
 
 {
-question:"Anaya's greatest strength ______",
-answers:[
-"arjun",
-"shivay",
-"arjun and shivay",
-"arjun singh rana",
-"asr"
-],
-message:"👑 Family became her greatest strength."
+question: "Anaya's greatest strength is:",
+options: ["Shivay", "Arjun", "Arjun Singh Rana", "All of the above"],
+correct: 3,
+message: "👑 Family became her greatest strength."
 },
 
 {
-question:"The emotion that defines Arjun's love for Anaya ______",
-answers:["obsession"],
-message:"🔥 Not love. Obsession."
+question: "Which emotion best defines Arjun's love for Anaya?",
+options: ["Friendship", "Respect", "Obsession", "Sympathy"],
+correct: 2,
+message: "🔥 Not love. Obsession."
 },
 
 {
-question:"The bond between Arjun and Anaya ______",
-answers:[
-"love",
-"destiny"
-],
-message:"🖤 Some bonds feel written in fate."
+question: "The bond between Arjun and Anaya is best described as:",
+options: ["Love", "Destiny", "Both Love and Destiny", "Coincidence"],
+correct: 2,
+message: "🖤 Some bonds feel written in fate."
 },
 
 {
-question:"The biggest enemy in their journey ______",
-answers:[
-"kesha",
-"kesha talwar"
-],
-message:"⚔️ Every love story has a villain."
+question: "Who was the biggest enemy in their journey?",
+options: ["Kesha Talwar", "Vikrant", "Shivay", "Arjun"],
+correct: 0,
+message: "⚔️ Every love story has a villain."
 },
 
 {
-question:"The one word that describes Arjun ______",
-answers:[
-"ruthless",
-"dominant",
-"loyal",
-"wife",
-"paglu"
-],
-message:"😏 Interesting choice."
+question: "Which word describes Arjun best?",
+options: ["Ruthless", "Dominant", "Loyal", "All of the above"],
+correct: 3,
+message: "😏 Arjun is never just one thing."
 }
+
 ];
 
 let currentQuestion = 0;
@@ -192,11 +184,12 @@ function startQuiz(){
 showQuestion();
 }
 
-function showQuestion(){
+function showQuestion() {
 
 const q = questions[currentQuestion];
 
 document.getElementById("quizContainer").innerHTML = `
+
 <div class="quiz-box">
 
 <div class="progress">
@@ -207,14 +200,19 @@ Question ${currentQuestion+1}/${questions.length}
 ${q.question}
 </h3>
 
-<input
-type="text"
-id="userAnswer"
-class="quiz-input"
-placeholder="Type your answer">
+${q.options.map((option,index)=>`
+<label class="quiz-option">
+<input type="radio"
+name="answer"
+value="${index}">
+${option}
+</label>
+`).join("")}
+
+<br>
 
 <button class="btn" onclick="checkAnswer()">
-Submit
+Submit Answer
 </button>
 
 </div>
@@ -223,25 +221,39 @@ Submit
 
 function checkAnswer(){
 
-const userAnswer =
-document.getElementById("userAnswer")
-.value
-.trim()
-.toLowerCase();
+const selected =
+document.querySelector(
+'input[name="answer"]:checked'
+);
+
+if(!selected){
+alert("Choose an answer first 😭");
+return;
+}
+
+const answer =
+parseInt(selected.value);
 
 const q = questions[currentQuestion];
 
-if(q.answers.includes(userAnswer)){
+if(answer === q.correct){
 score++;
 }
 
-document.getElementById("quizContainer").innerHTML += `
+document.getElementById("quizContainer").innerHTML = `
+<div class="quiz-box">
+
 <div class="quiz-feedback">
 ${q.message}
+
 <br><br>
+
 <button class="btn" onclick="nextQuestion()">
-Next Question
+Next Question →
 </button>
+
+</div>
+
 </div>
 `;
 }
@@ -308,3 +320,7 @@ Play Again
 </div>
 `;
 }
+
+window.startQuiz = startQuiz;
+window.checkAnswer = checkAnswer;
+window.nextQuestion = nextQuestion;
