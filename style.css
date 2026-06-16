@@ -1263,33 +1263,39 @@ footer > p {
   .reader-message-box { padding: 52px 44px; }
 }
 
-/* =============================================
-   RESPONSIVE — Mobile
-   ============================================= */
 @media (max-width: 768px) {
   nav {
     flex-direction: row;
     flex-wrap: wrap;
     padding: 18px 5%;
+    align-items: flex-start;
   }
 
-  .nav-toggle { display: flex; }
+  .nav-toggle {
+    display: flex;
+  }
 
   nav ul {
     width: 100%;
     flex-direction: column;
-    gap: 0;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.45s var(--ease);
+    transition: max-height 0.4s ease;
+    margin-top: 15px;
   }
 
-  nav ul.open { max-height: 280px; }
+  nav ul.open {
+    max-height: 300px;
+  }
+
+  nav ul li {
+    width: 100%;
+  }
 
   nav ul li a {
     display: block;
-    padding: 14px 0;
-    border-bottom: 1px solid var(--border);
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
   }
 
   .hero { padding: 120px 5% 80px; }
